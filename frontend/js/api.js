@@ -1,4 +1,4 @@
-const API_BASE_URL = 'shery85950-shery8595-flood-forecasting-backend-production-a2e6.up.railway.app';
+const API_BASE_URL = 'shery85950-shery8595-flood-forecasting-backend-production-a2e6.up.railway.app/api';
 
 const api = {
     // Alerts
@@ -98,5 +98,6 @@ const api = {
         return response.json();
     }
 };
+
 
 
