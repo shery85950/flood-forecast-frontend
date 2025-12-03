@@ -140,6 +140,7 @@
     <script>
         const WEATHER_API_KEY = '5523bf8add464255b93210055252911';
         const WEATHER_API_BASE = 'https://api.weatherapi.com/v1';
+        const BACKEND_API_URL = 'https://shery85950-shery8595-flood-forecasting-backend-production-a2e6.up.railway.app/api';
         let userLocation = 'Lahore';
 
         function getUserLocation() {
@@ -222,11 +223,9 @@
                 </div>
             `;
 
-            // Store current location for AI report
             window.currentLocation = location.name;
         }
 
-        // AI Flood Risk Report Function
         async function getAiFloodReport(location) {
             const modal = document.createElement('div');
             modal.id = 'ai-report-modal';
@@ -249,7 +248,7 @@
             document.body.appendChild(modal);
 
             try {
-                const response = await fetch(`http://localhost:8080/api/forecasts/location-report?location=${encodeURIComponent(location)}`);
+                const response = await fetch(`${BACKEND_API_URL}/forecasts/location-report?location=${encodeURIComponent(location)}`);
 
                 if (!response.ok) throw new Error('Failed to fetch AI report');
 
@@ -330,7 +329,6 @@
             }).join('');
         }
 
-        // Database forecasts
         const filterBtns = document.querySelectorAll('.filter-btn');
         let allDbForecasts = [];
 
